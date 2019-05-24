@@ -13,7 +13,7 @@ module.exports = {
     },
     async getOne(burger) {
         let response = await new Promise((resolve, reject) => {
-            db.query('SELECT * FROM burgers WHERE ?', { burger_name: burger }, (e, burgers) => {
+            db.query('SELECT * FROM burgers WHERE ?', { burgers_name: burger }, (e, burgers) => {
                 if (e) reject(e)
                 console.log(burgers)
                 resolve(burgers)
@@ -26,7 +26,7 @@ module.exports = {
             db.query('INSERT INTO burgers SET?', burger, e => {
                 if (e) reject(e)
                 console.log('Data Added!')
-                resolve()
+                resolve(true)
             })
         })
         return response
