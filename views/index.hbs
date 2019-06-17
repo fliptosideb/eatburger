@@ -1,1 +1,56 @@
-<h1>Hello World!</h1>
+<div class="container-fluid">
+    <div class="container" style="text-align: center">
+    </div>
+
+    <h1 style="text-align: center">Eat Burgers</h1>
+    <div class="row" style="text-align: center">
+
+        {{!-- undevoured burgers here --}}
+        <div class="col">
+            <h4>Undevoured Burgers</h4>
+            <ul style="list-style-type: none">
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                <li class="burgerlist" data-uid="{{id}}">
+                    {{this.burger_name}} <button type="button" id="devour"
+                        data-uid="{{id}}">Devour</button>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+        {{!-- devoured burgers here --}}
+        <div class="col">
+            <h4>Devoured Burgers</h4>
+            <ul>
+                <ul style="list-style-type: none">
+                    {{#each burgers}}
+                    {{#if this.devoured}}
+                    <li class="burgerlist" data-uid="{{id}}">
+                        {{this.burger_name}} <button id="delete" data-uid="{{id}}"
+                            class="fas fa-trash-alt">Remove</button>
+                    </li>
+
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <form action="/burgers" method="POST">
+  <div class="form-group">
+    <label for="burger">Burger</label>
+    <input type="text" class="form-control" id="addBurger" name="burger_name" placeholder="Enter Burger">
+    <input type="hidden" name="devoured" value="0">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+</div>
