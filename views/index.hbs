@@ -1,13 +1,19 @@
-<div class="container-fluid">
-    <div class="container" style="text-align: center">
-    </div>
-
+<div class="container">
     <h1 style="text-align: center">Eat Burgers</h1>
+        <div class="container" style="text-align: center">
+    </div>
+    <form action="/burgers" method="POST">
+  <div class="form-group" style="text-align: center">
+    {{!-- <label for="burger">Burger</label> --}}
+    <input type="text" class="form-control" id="addBurger" name="burger_name" placeholder="Enter the burger you would like to make">
+    <input type="hidden" name="devoured" value="0">
+      <button type="submit" class="btn btn-primary">Make</button>
+  </div>
+</form>
     <div class="row" style="text-align: center">
 
-        {{!-- undevoured burgers here --}}
-        <div class="col">
-            <h4>Undevoured Burgers</h4>
+        <div class="col s6">
+            <h4 style="text-align: center">Undevoured Burgers</h4>
             <ul style="list-style-type: none">
                 {{#each burgers}}
                 {{#unless this.devoured}}
@@ -20,9 +26,8 @@
             </ul>
         </div>
 
-        {{!-- devoured burgers here --}}
-        <div class="col">
-            <h4>Devoured Burgers</h4>
+        <div class="col s6">
+            <h4 style="text-align: center">Devoured Burgers</h4>
             <ul>
                 <ul style="list-style-type: none">
                     {{#each burgers}}
@@ -40,16 +45,6 @@
     </div>
 
 
-
-
-    <form action="/burgers" method="POST">
-  <div class="form-group">
-    <label for="burger">Burger</label>
-    <input type="text" class="form-control" id="addBurger" name="burger_name" placeholder="Enter Burger">
-    <input type="hidden" name="devoured" value="0">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
 
 
 

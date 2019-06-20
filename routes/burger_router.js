@@ -1,9 +1,6 @@
-// const { getAll, getOne, addOne, updateOne, deleteOne } = require('../controllers')
-
 const {burgers} = require('../controllers')
 
 module.exports = app => {
-  // GET all burgers
   app.get('/', (req, res) => {
     burgers.getAll()
       // .then(burgers => res.json(burgers))
