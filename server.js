@@ -9,8 +9,6 @@ app.use(express.json())
 app.engine('.hbs', require('express-handlebars')({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', '.hbs')
 
+require('./routes')(app)
 
-require('./config').connect(_ => {
-    require('./routes')(app)
-    app.listen(process.env.PORT || 3000)
-})
+require('./config').connect(_ => app.listen(process.env.PORT || 3000))
