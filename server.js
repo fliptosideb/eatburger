@@ -12,3 +12,4 @@ app.set('view engine', '.hbs')
 require('./routes')(app)
 
 require('./config').connect(_ => app.listen(process.env.PORT || 3000))
+
